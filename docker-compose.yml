@@ -1,31 +1,5 @@
-version: '2'
-volumes:
-  resin-data:
+version: '2.1'
 services:
-  growin_module_core:
-    build: ./containers/growin_module_core
-    privileged: true
-    restart: always
-    network_mode: host
-    volumes:
-      - 'resin-data:/data'
-    labels:
-      io.balena.features.kernel-modules: '1'
-    ports:
-      - "5000:5000"
-
-  # telegraf-datalog:
-  #   build: ./containers/telegraf
-  #   network_mode: host
-  #   volumes:
-  #     - 'resin-data:/data'
-  #   environment:
-  #     - INFLUX_TOKEN
-
-  # telegraf-logs:
-  #   build: ./containers/telegraf-logs
-  #   network_mode: host
-  #   volumes:
-  #     - 'resin-data:/data'
-  #   environment:
-  #     - INFLUX_TOKEN
+  test:
+    image: busybox
+    command: sleep infinity
